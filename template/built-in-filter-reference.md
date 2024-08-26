@@ -154,3 +154,34 @@ Keyword มันไม่เหมือน `strftime` นะ อย่าง�
 {{ 45000|intcomma }}
 # output จะเป็น 45,000 (ทำให้มนุษย์อ่านได้ง่ายขึ้น)
 </code></pre>
+
+## Register more filter by humanrize
+You must be create a folder `templatetags` and `custom_filter.py` in directory
+```
+app/
+   templatetags/
+      __init__.py
+      custom_filters.py
+```
+In side custom_filter for example, We want to convert number to thai number
+```py
+from django import template #Call Module
+
+register = template.Library() #Register Library
+
+@register.filter(name='thai_number') #Register Filer name
+def thai_number(value): #Define the function to do something at here
+    number_words = {
+        '0': 'ศูนย์',
+        '1': 'หนึ่ง',
+        '2': 'สอง',
+        '3': 'สาม',
+        '4': 'สี่',
+        '5': 'ห้า',
+        '6': 'หก',
+        '7': 'เจ็ด',
+        '8': 'แปด',
+        '9': 'เก้า'
+    }
+    return ''.join(number_words.get(char, char) for char in str(value)) # Don't forget return values
+```
