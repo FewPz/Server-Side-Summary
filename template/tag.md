@@ -104,6 +104,14 @@ urlpatterns = [
 &#x3C;a href="{% url 'manage-staff' project.id employee.id %}">ลบ Staff&#x3C;/a>
 </code></pre>
 
+URL in project  
+![image](https://github.com/user-attachments/assets/b5f5ad7a-fdaa-4ed5-8df6-8ca0cd3bfd15)
+
+URL in app
+![image](https://github.com/user-attachments/assets/f39d7e87-e5bd-4651-9a38-8cdbef8b7fa1)
+
+
+
 [^1]: ชื่อของ path
 
 [^2]: ชื่อของ path
